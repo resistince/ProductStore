@@ -4,12 +4,14 @@ const bodyparser = require('body-parser');
 
 const keys = require('./config/keys');
 
+const productRoutes = require('./api/product/routes.js');
+
 const app = express();
 
 app.use(bodyparser.urlencoded({ extended: false }))
 app.use(bodyparser.json());
 
-const port = process.env.PORT || 5000;
+app.use('/api/product', productRoutes);
 
 mongoose.connect(keys.mongoUrl)
   .then(() => {
@@ -19,7 +21,13 @@ mongoose.connect(keys.mongoUrl)
     console.log(err);
   });
 
+const port = process.env.PORT || 5000;
+
 app.listen(port, (err) => {
   if (err) console.log(err);
   console.log(`App listening on port ${port}`);
+});
+
+app.get('/', (req, res) => {
+  res.status(200).send('Hello world');
 });
