@@ -14,7 +14,10 @@ app.use(bodyparser.json());
 app.use("/api/product", productRoutes);
 
 mongoose
-  .connect(keys.mongoUrl)
+  .connect(
+    keys.mongoUrl,
+    { useNewUrlParser: true }
+  )
   .then(() => {
     console.log("Connected to MongoDb");
   })
