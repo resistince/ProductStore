@@ -7,9 +7,9 @@ class ItemList extends Component {
     const { items } = this.props;
 
     return (
-      <div>
+      <div className="container">
         {items.map(i => (
-          <Item key={i.id} name={i.name} />
+          <Item key={i.id} name={i.name} cost={i.cost} />
         ))}
       </div>
     );

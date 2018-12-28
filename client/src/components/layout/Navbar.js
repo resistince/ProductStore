@@ -5,7 +5,7 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
-        <div class="container">
+        <div className="container">
           <Link className="navbar-brand" to="/">
             Product List
           </Link>
@@ -15,7 +15,7 @@ class Navbar extends Component {
             data-toggle="collapse"
             data-target="#mobile-nav"
           >
-            <span classNanme="navbar-toggle-icon" />
+            <span className="navbar-toggle-icon" />
           </button>
 
           <div className="collapse navbar-collapse" id="mobile-nav">
