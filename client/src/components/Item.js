@@ -16,7 +16,7 @@ class Item extends Component {
 
 Item.propTypes = {
   name: propTypes.string.isRequired,
-  cost: propTypes.number.isRequired
+  cost: propTypes.string.isRequired
 };
 
 export default Item;

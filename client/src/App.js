@@ -6,12 +6,6 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ItemList from "./components/ItemList";
 
-const items = [
-  { id: 1, name: "Test 1", cost: 20 },
-  { id: 2, name: "Test 2", cost: 40 },
-  { id: 3, name: "Test 3", cost: 60 }
-];
-
 class App extends Component {
   render() {
     return (
@@ -22,7 +16,7 @@ class App extends Component {
             <Route
               exact
               path="/items"
-              render={() => <ItemList items={items} />}
+              render={() => <ItemList/>}
             />
           </div>
           <Footer />
