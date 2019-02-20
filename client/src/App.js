@@ -5,6 +5,8 @@ import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ItemList from "./components/ItemList";
+import InsertProduct from "./components/pages/InsertProduct";
+import EditProduct from "./components/pages/EditProduct";
 
 class App extends Component {
   render() {
@@ -16,7 +18,17 @@ class App extends Component {
             <Route
               exact
               path="/items"
-              render={() => <ItemList/>}
+              component={ItemList}
+            />
+            <Route
+              exact
+              path="/insert"
+              component={InsertProduct}
+            />
+            <Route
+              exact
+              path="/edit"
+              component={EditProduct}
             />
           </div>
           <Footer />

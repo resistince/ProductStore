@@ -25,6 +25,11 @@ class Navbar extends Component {
                   Items
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/insert">
+                  Insert
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
