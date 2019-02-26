@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
+const passport = require("passport");
 
 const keys = require("./config/keys");
 
@@ -11,6 +12,9 @@ const app = express();
 
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
+
+app.use(passport.initialize());
+require("./config/passport")(passport);
 
 app.use("/api/product", productRoutes);
 app.use("/api/user", userRoutes);
