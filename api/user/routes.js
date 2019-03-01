@@ -8,7 +8,7 @@ const passport = require("passport");
 const keys = require("../../config/keys");
 const User = require("../../models/user");
 
-router.get("/all", (req, res) => {
+router.get("/all", passport.authenticate("jwt", { session: false }), (req, res) => {
   User.find({}, (err, result) => {
     if (err) res.status(404).json(err);
     res.status(200).send(result);
@@ -23,7 +23,7 @@ router.get("/current", passport.authenticate("jwt", { session: false }), (req, r
   });
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
   User.findById(req.params.id, (err, result) => {
     if (err) res.status(404).json(err);
     res.status(200).json(result);
@@ -75,7 +75,7 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
   User.findByIdAndRemove(req.params.id, (err, result) => {
     if (err) res.status(404).json(err);
     res.status(200).json(result);

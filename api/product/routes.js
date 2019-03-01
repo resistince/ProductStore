@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
+const passport = require("passport");
 
 const productSchema = require("../../models/product");
 const Product = mongoose.model("Product", productSchema);
@@ -57,7 +58,7 @@ router.put("/:id", (req, res) => {
   );
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
   Product.findByIdAndRemove(req.params.id, (err, result) => {
     if (err) res.status(400).json(err);
     res.status(200).json(result);

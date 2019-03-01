@@ -5,6 +5,8 @@ import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ItemList from "./components/ItemList";
+
+import Login from "./components/pages/Login";
 import InsertProduct from "./components/pages/InsertProduct";
 import EditProduct from "./components/pages/EditProduct";
 
@@ -15,6 +17,11 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <div className="container">
+            <Route
+              exact
+              path="/"
+              component={Login}
+            />
             <Route
               exact
               path="/items"

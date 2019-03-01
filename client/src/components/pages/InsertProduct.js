@@ -21,7 +21,6 @@ export default class InsertProduct extends Component {
     };
 
     axios.post("/api/product/", newProductData).then(res => {
-      console.log(res.data);
       this.props.history.push("/items");
     });
   }

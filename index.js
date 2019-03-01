@@ -37,7 +37,3 @@ app.listen(port, err => {
   if (err) console.log(err);
   console.log(`App listening on port ${port}`);
 });
-
-app.get("/", (req, res) => {
-  res.status(200).send("Hello world");
-});
