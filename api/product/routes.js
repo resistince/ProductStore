@@ -20,7 +20,7 @@ router.get("/:id", (req, res) => {
   });
 });
 
-router.post("/", (req, res) => {
+router.post("/", passport.authenticate("jwt", { session: false }), (req, res) => {
   if (!req.body) res.sendStatus(400);
 
   const newProduct = new Product({
@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
   });
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
   if (!req.body) res.sendStatus(400);
 
   const updatedProduct = {
